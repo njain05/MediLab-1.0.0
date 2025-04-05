@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Login - Medilab</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("assets/img/hero-bg.jpg") center center;
+      background-size: cover;
+      position: relative;
+      margin: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 15px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+      z-index: 1;
+      margin: 20px 0;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo h1 {
+      color: #2c4964;
+      font-size: 28px;
+      margin: 0;
+    }
+    .form-control {
+      height: 48px;
+      border-radius: 50px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      padding: 10px 20px;
+    }
+    .form-control:focus {
+      border-color: #1977cc;
+      box-shadow: 0 0 0 0.2rem rgba(25, 119, 204, 0.25);
+    }
+    .btn-login {
+      background: #1977cc;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 50px;
+      width: 100%;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-login:hover {
+      background: #166ab5;
+      transform: translateY(-2px);
+    }
+    .btn-login:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .form-check {
+      margin: 20px 0;
+    }
+    .form-check-label {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .signup-link {
+      text-align: center;
+      margin-top: 30px;
+      color: #666;
+    }
+    .signup-link a {
+      color: #1977cc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+    .forgot-password {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+    .forgot-password a {
+      color: #1977cc;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+    .invalid-feedback {
+      color: #dc3545;
+      font-size: 0.85rem;
+      margin-top: 5px;
+      padding-left: 20px;
+    }
+    .is-invalid {
+      border-color: #dc3545;
+    }
+    .is-invalid:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+      .container {
+        padding: 0 10px;
+      }
+      .form-control {
+        height: 44px;
+        font-size: 0.9rem;
+      }
+      .btn-login {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="login-box">
+      <div class="logo">
+        <a href="index.html">
+          <h1>Medilab</h1>
+        </a>
+      </div>
+
+      <h2 class="text-center mb-4">Welcome Back</h2>
+      
+      <form action="forms/login.php" method="post" id="loginForm">
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" required>
+          <div class="invalid-feedback" id="emailError"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+          <div class="invalid-feedback" id="passwordError"></div>
+          <div class="forgot-password">
+            <a href="forgot-password.html">Forgot Password?</a>
+          </div>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+          <label class="form-check-label" for="rememberMe">
+            Remember me
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-login" id="submitBtn">Log In</button>
+      </form>
+
+      <div class="signup-link">
+        Don't have an account? <a href="signup.html">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('loginForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // Form submission
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Reset previous error states
+        const errorElements = document.querySelectorAll('.invalid-feedback');
+        errorElements.forEach(el => el.textContent = '');
+        const inputElements = document.querySelectorAll('.form-control');
+        inputElements.forEach(el => el.classList.remove('is-invalid'));
+
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Logging in...';
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // Send form data
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'alert alert-success mt-3';
+            successMessage.textContent = data.message;
+            form.appendChild(successMessage);
+
+            // Redirect to dashboard after 2 seconds
+            setTimeout(() => {
+              window.location.href = 'dashboard.html';
+            }, 2000);
+          } else {
+            // Show error messages
+            Object.keys(data.errors).forEach(field => {
+              const errorElement = document.getElementById(field + 'Error');
+              const inputElement = document.getElementById(field);
+              if (errorElement && inputElement) {
+                errorElement.textContent = data.errors[field];
+                inputElement.classList.add('is-invalid');
+              }
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+        })
+        .finally(() => {
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Log In';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html> 
